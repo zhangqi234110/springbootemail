@@ -21,4 +21,10 @@ public class MailSenderController {
        return "sendsuccess";
     }
 
+    @RequestMapping("/sendfilemail")
+    public String sendMail(String title, String content, String filePath,String email) {
+       maileService.sendFileMail(title, content, filePath, email);
+        return "sendsuccess";
+    }
+
 }

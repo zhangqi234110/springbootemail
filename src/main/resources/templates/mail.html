@@ -30,7 +30,37 @@
 
     </form>
 
+</div>
 
+<div>
+    <form action="/sendfilemail" method="post">
+        <table border="1px">
+            <tr>
+                <td>
+                    <input type="text" th:name="title" placeholder="请输入标题">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" th:name="content" placeholder="请输入内容">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="email" th:name="email" placeholder="请输入收件人邮箱">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" th:name="filePath" placeholder="请输入附件在本机的路径">
+                </td>
+            </tr>
+
+
+        </table>
+        <button type="submit">发送</button>
+
+    </form>
 
 </div>
 </body>

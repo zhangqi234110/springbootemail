@@ -34,13 +34,11 @@ public class MaileServiceImpl implements MailService {
         mailSender.send(message); //发送
 
     }
-
     @Override
-    public Map<String, Object> sendFileMail(String title, String content, String filePath,String email) {
+    public String sendFileMail(String title, String content, String filePath,String email) {
         System.out.println("in sendAttachmentsMail");
         System.out.println(filePath);
         MimeMessage message = mailSender.createMimeMessage();
-        Map<String, Object> map = new HashMap<>();
         try {
             MimeMessageHelper helper = new MimeMessageHelper(message, true);
             helper.setFrom(from);
@@ -48,6 +46,9 @@ public class MaileServiceImpl implements MailService {
             helper.setSubject(title);
             helper.setText(content, true);
             File file = new File(filePath);
+            if (file.exists()==false){
+                return "error";
+            }
             file = ResourceUtils.getFile(file.getAbsolutePath());
             String fileName = filePath.substring(filePath.lastIndexOf(File.separator));
             System.out.println(fileName);
@@ -55,21 +56,15 @@ public class MaileServiceImpl implements MailService {
             //helper.addAttachment(fileName,file);
             helper.addAttachment(fileName, file);
             mailSender.send(message);
-            map.put("code", 1);
-            map.put("message", "发送成功");
-            return map;
+
         } catch (MessagingException e) {
             e.printStackTrace();
-            map.put("code",0);
-            map.put("message","发送失败");
-            return map;
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-            map.put("code",-1);
-            map.put("message","没有文件");
-            return map;
-        } finally {
         }
+        return "sendsuccess";
+
 
     }
 

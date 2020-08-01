@@ -23,8 +23,8 @@ public class MailSenderController {
 
     @RequestMapping("/sendfilemail")
     public String sendMail(String title, String content, String filePath,String email) {
-       maileService.sendFileMail(title, content, filePath, email);
-        return "sendsuccess";
+        String s = maileService.sendFileMail(title, content, filePath, email);
+        return s;
     }
 
 }

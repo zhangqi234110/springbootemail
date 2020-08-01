@@ -12,7 +12,7 @@ public class MailSenderController {
 
     @Autowired
     private MailService maileService;
-    @Value("${spring.mail.username}")  //发送人的邮箱  比如155156641XX@163.com
+    @Value("${spring.mail.username}")  //发送人的邮箱
     private String from;
 
     @RequestMapping("/sendmail")

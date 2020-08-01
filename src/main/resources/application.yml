@@ -1,0 +1,23 @@
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+    check-template-location: true
+    suffix: .html
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+    mode: HTML5
+    cache: false
+  mail:
+    host: smtp.163.com   #指定网易邮箱
+    username: zhangqidaliandaxue@163.com       #发件者的邮箱
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+    password: QNHGTTOFUHEAWOWD       #这里不是发件者的邮箱密码，而是邮箱的授权码，在设置选项中开启pop3/smtp服务，扫码后发送短信，然后就会出现授权码
+server:
+  port: 8082

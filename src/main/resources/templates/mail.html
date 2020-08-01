@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>邮件发送</title>
+</head>
+<body>
+<div>
+    <form action="/sendmail" method="post">
+        <table border="1px">
+            <tr>
+                <td>
+                    <input type="text" th:name="title" placeholder="请输入标题">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" th:name="content" placeholder="请输入内容">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="email" th:name="email" placeholder="请输入收件人邮箱">
+                </td>
+            </tr>
+
+
+        </table>
+        <button type="submit">发送</button>
+
+    </form>
+
+
+
+</div>
+</body>
+</html>
